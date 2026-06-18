@@ -102,9 +102,9 @@ const priorityTone = {
 const cx = (...classes) => classes.filter(Boolean).join(" ");
 
 const inputClass =
-  "w-full rounded-lg border border-[#eae8e0] bg-[#efeee8] px-3 py-2 text-sm " +
-  "text-zinc-900 outline-none transition placeholder:text-zinc-500 " +
-  "focus:border-[#d9d5c8] focus:bg-[#f9f9f7] focus:ring-4 focus:ring-[#eae8e0]/70";
+  "w-full rounded-lg border border-[#eae8e0] bg-white px-3 py-2 text-sm " +
+  "text-zinc-900 outline-none transition placeholder:text-zinc-400 " +
+  "focus:border-[#1a2332] focus:bg-white focus:ring-4 focus:ring-[#1a2332]/5";
 
 async function apiRequest(path, options = {}) {
   const response = await fetch(`${API_BASE_URL}${path}`, {
@@ -475,7 +475,7 @@ function CitizenPortal() {
               New grievance intake
             </h2>
           </div>
-          <div className="rounded-lg border border-emerald-100/80 bg-emerald-50/50 p-2 text-emerald-700">
+          <div className="rounded-lg border border-[#1a2332]/10 bg-[#1a2332]/5 p-2 text-[#1a2332]">
             <SendHorizonal className="h-5 w-5" aria-hidden="true" />
           </div>
         </div>
@@ -586,10 +586,11 @@ function CitizenPortal() {
           {error && <InlineError message={error} />}
 
           <button
-            className="inline-flex h-11 items-center justify-center gap-2 rounded-lg bg-zinc-950 px-4 text-sm font-semibold text-white shadow-sm transition hover:bg-zinc-800 disabled:cursor-not-allowed disabled:bg-zinc-300"
+            className="inline-flex h-11 items-center justify-center gap-2 rounded-lg bg-[#1a2332] px-4 text-sm font-bold text-[#f9f9f7] shadow-md shadow-[#1a2332]/10 transition-all duration-200 hover:bg-[#233044] disabled:cursor-not-allowed disabled:bg-zinc-200"
             disabled={loading}
             type="submit"
-          >
+            >
+            
             {loading ? (
               <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />
             ) : (
