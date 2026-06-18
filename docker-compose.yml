@@ -1,0 +1,35 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: delhi_db
+    restart: always
+    environment:
+      POSTGRES_USER: gov_admin
+      POSTGRES_PASSWORD: SecretGovPassword2026
+      POSTGRES_DB: delhi_accountability
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U gov_admin -d delhi_accountability"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build: ./backend
+    container_name: delhi_backend
+    restart: always
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql://gov_admin:SecretGovPassword2026@db:5432/delhi_accountability
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  postgres_data:
