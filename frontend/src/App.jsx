@@ -24,7 +24,6 @@ import {
   FileText,
   Gauge,
   ImagePlus,
-  Layers3,
   Loader2,
   LockKeyhole,
   Radio,
@@ -37,6 +36,9 @@ import {
   X,
   XCircle,
 } from "lucide-react";
+
+
+import delhiLogo from "./assets/delhi.png";
 
 const API_BASE_URL = (
   import.meta.env?.VITE_API_BASE_URL || "http://localhost:8000"
@@ -274,9 +276,13 @@ function App() {
         <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-4 sm:px-6 lg:px-8">
           <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
             <div className="flex min-w-0 items-center gap-3">
-              <div className="grid h-10 w-10 shrink-0 place-items-center rounded-lg border border-[#eae8e0] bg-zinc-900 text-[#f9f9f7] shadow-sm shadow-[#eae8e0]/60">
-                <Layers3 className="h-5 w-5" aria-hidden="true" />
-              </div>
+              <div className="h-12 w-14 shrink-0 select-none transition-transform duration-200 hover:scale-105">
+                <img 
+                  src={delhiLogo} 
+                  alt="Delhi Accountability System Logo" 
+                  className="h-full w-full object-contain object-left"
+                  />
+                </div>
               <div className="min-w-0">
                 <p className="text-xs font-medium uppercase tracking-[0.18em] text-zinc-500">
                   Delhi Accountability Monitoring System
@@ -287,9 +293,9 @@ function App() {
               </div>
             </div>
             <div className="flex flex-wrap items-center gap-2 text-xs text-zinc-500">
-              <span className="inline-flex items-center gap-2 rounded-lg border border-[#eae8e0] bg-[#f9f9f7]/80 px-3 py-2 shadow-sm shadow-[#eae8e0]/50">
-                <Radio className="h-3.5 w-3.5 text-emerald-600" />
-                API {API_BASE_URL}
+              <span className="inline-flex items-center gap-2 rounded-lg border border-[#eae8e0] bg-white px-3 py-1.5 text-xs font-semibold text-[#1a2332] shadow-sm shadow-[#eae8e0]/40">
+                <Radio className="h-3.5 w-3.5 text-emerald-600 animate-pulse" />
+                API: {API_BASE_URL}
               </span>
               <span className="inline-flex items-center gap-2 rounded-lg border border-[#eae8e0] bg-[#f9f9f7]/80 px-3 py-2 shadow-sm shadow-[#eae8e0]/50">
                 <Activity className="h-3.5 w-3.5 text-sky-600" />
