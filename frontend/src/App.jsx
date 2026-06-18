@@ -93,10 +93,10 @@ const priorityRank = {
 };
 
 const priorityTone = {
-  Critical: "border-rose-200 bg-rose-50 text-rose-700",
-  High: "border-amber-200 bg-amber-50 text-amber-700",
-  Medium: "border-sky-200 bg-sky-50 text-sky-700",
-  Low: "border-emerald-200 bg-emerald-50 text-emerald-700",
+  Critical: "border-rose-200/50 bg-rose-100/60 text-rose-900",
+  High: "border-amber-200/50 bg-amber-100/50 text-amber-900",
+  Medium: "border-sky-200/50 bg-sky-100/50 text-sky-900",
+  Low: "border-emerald-200/50 bg-emerald-100/50 text-emerald-900",
 };
 
 const cx = (...classes) => classes.filter(Boolean).join(" ");
@@ -213,7 +213,7 @@ function getSlaMeta(value) {
   if (diffHours < 0) {
     return {
       label: "Breached",
-      tone: "border-rose-200 bg-rose-50 text-rose-700",
+      tone: "border-amber-200/50 bg-amber-100/60 text-amber-900",
       urgency: 100,
     };
   }
@@ -913,7 +913,7 @@ function FieldOfficerDesk() {
 
         <div className="mt-5 overflow-x-auto rounded-lg border border-[#eae8e0] bg-[#f9f9f7] shadow-sm shadow-[#eae8e0]/50">
           <div className="min-w-[760px]">
-            <div className="grid grid-cols-[1.25fr_2fr_0.85fr_1fr_0.9fr] gap-3 border-b border-[#eae8e0] bg-[#efeee8] px-4 py-3 text-xs font-semibold uppercase tracking-[0.12em] text-zinc-500">
+            <div className="grid grid-cols-[1.25fr_2fr_0.85fr_1fr_0.9fr] gap-3 bg-[#eae8e0] border-b border-[#eae8e0] px-4 py-3.5 text-xs font-bold uppercase tracking-wider text-zinc-600">
               <span>Ticket ID</span>
               <span>Title</span>
               <span>Priority</span>
@@ -962,7 +962,7 @@ function FieldOfficerDesk() {
                       </span>
                       <span className="flex justify-end">
                         <button
-                          className="inline-flex h-9 items-center gap-2 rounded-lg bg-zinc-950 px-3 text-xs font-semibold text-white transition hover:bg-zinc-800"
+                          className="inline-flex h-9 items-center gap-2 rounded-lg bg-[#1a2332] px-3.5 text-xs font-bold text-[#f9f9f7] shadow-sm shadow-[#1a2332]/10 transition-all duration-200 hover:bg-[#233044]"
                           onClick={() => openResolution(ticket)}
                           type="button"
                         >
